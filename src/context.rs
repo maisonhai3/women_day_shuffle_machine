@@ -23,14 +23,14 @@ impl ShuffleBehavior for AlphabetState {
 }
 
 
-struct ShuffleMachine {
+pub struct ShuffleMachine {
     random_state: RandomState,
     alphabet_state: AlphabetState,
     current_mode: Mode,
 }
 
 impl ShuffleMachine {
-    fn new() -> Self{
+    pub fn new() -> Self{
         ShuffleMachine {
             random_state: RandomState {},
             alphabet_state: AlphabetState {},
@@ -38,7 +38,7 @@ impl ShuffleMachine {
         }
     }
 
-    fn shuffle(&self) -> &str {
+    pub fn shuffle(&self) -> &str {
         match self.current_mode {
             Mode::RandomState => self.random_state.shuffle(),
             Mode::AlphabetState => self.alphabet_state.shuffle(),
